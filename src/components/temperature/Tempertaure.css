@@ -1,0 +1,124 @@
+.temp-container {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 2px solid #7c7b7d;
+  border-bottom-color: transparent;
+  position: relative;
+}
+.temp-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background: #7c7b7d;
+  border-radius: 50%;
+  transform: 0.3s ease;
+}
+.temp-container::after {
+  content: "";
+  --rotation: 235;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  width: 3px;
+  height: 40%;
+  background-color: #7c7b7d;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transform-origin: bottom;
+  z-index: -1;
+  transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+  transition: 3s ease-in-out;
+}
+.temp {
+  color: #7c7b7d;
+  padding-top: 10px;
+  --rotation: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform: rotate(calc(var(--rotation) + 5deg));
+  font-size: 1rem;
+  transition: 1.25s ease;
+  font-weight: 500;
+}
+.temp-1 {
+  --rotation: 230deg;
+}
+.temp-2 {
+  --rotation: 260deg;
+}
+.temp-3 {
+  --rotation: 290deg;
+}
+.temp-4 {
+  --rotation: 320deg;
+}
+.temp-5 {
+  --rotation: 350deg;
+}
+.temp-6 {
+  --rotation: 380deg;
+}
+.temp-7 {
+  --rotation: 410deg;
+}
+.temp-8 {
+  --rotation: 440deg;
+}
+.temp-9 {
+  --rotation: 470deg;
+}
+.temp-icon,
+.drop-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -150%);
+  color: #7c7b7d;
+  font-size: 40px;
+  transition: 1s ease;
+}
+
+.drop-icon {
+  font-size: 20px;
+  left: 60%;
+  transform: translate(-110%, -230%);
+}
+
+.temp-container.active {
+  border-color: #f96027;
+  border-bottom-color: transparent ;
+}
+.temp-container.active::after {
+  --rotation: 475;
+  background-color: #f96027;
+}
+.temp-container.active .temp {
+  color: #f96027;
+  animation: scale 2.5s ease;
+}
+.temp-container.active .icons > * {
+  color: #f96027;
+}
+.temp-container.active::before {
+  background-color: #f96027;
+}
+.temp-container.active .show {
+  background-color: #f96027;
+}
+@keyframes scale {
+  0%,
+  100% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.08;
+  }
+}
+/* #f96027 */
